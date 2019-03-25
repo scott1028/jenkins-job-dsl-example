@@ -10,8 +10,7 @@ pipelineJob('PipelineJob example') {
       scm {
         git(
           'https://github.com/Dkra/cra-jenkins',
-          'master',
-          Closure configure = null)
+          'master')
       }
       scriptPath('Jenkinsfile') // Defualt: Jenkinsfile
     }
