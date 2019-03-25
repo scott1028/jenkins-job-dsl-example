@@ -1,14 +1,19 @@
-def jobName = 'First Job'
+def jobName = 'Freestyle Job'
 
 job(jobName) {
-    description("A simple Freestyle Job")
+  description('A simple Freestyle Job')
 }
 
-pipelineJob('example') {
-    definition {
-        cps {
-            script(readFileFromWorkspace('project-a-workflow.groovy'))
-            sandbox()
-        }
+pipelineJob('PipelineJob example') {
+  definition {
+    cpsScm {
+      scm {
+        git(
+          'https://github.com/Dkra/cra-jenkins',
+          'master',
+          Closure configure = null)
+      }
+      scriptPath('Jenkinsfile') // Defualt: Jenkinsfile
     }
+  }
 }
