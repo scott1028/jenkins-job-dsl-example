@@ -4,7 +4,7 @@ job(jobName) {
   description('A simple Freestyle Job')
 }
 
-pipelineJob('PipelineJob example') {
+pipelineJob('cra-jenkins-project') {
   definition {
     cpsScm {
       scm {
