@@ -1,17 +1,13 @@
-node {
-  currentBuild.result = "Success"
-  try {
-    stage 'Create SeedJobs by Project'
-      projectWithJobDsl().each { app -> createProjectJobs(app) }
-  } catch (err) {
+try {
+  stage 'Create SeedJobs by Project'
+    projectWithJobDsl().each { app -> createProjectJobs(app) }
+} catch (err) {
 
-    throw err
+  throw err
 
-  } finally {
-    deleteDir()
-  }
+} finally {
+  deleteDir()
 }
-
 
 def createProjectJobs(app) {
   try {
