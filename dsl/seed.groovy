@@ -1,22 +1,81 @@
-try {
-  projectWithJobDsl().each { app -> createProjectJobs(app) }
-} catch (err) {
+pipeline {
+  agent any
 
-  throw err
+  environment {
+    REPO = "https://github.com/Dkra/jenkins-job-dsl-example.git"
+    REPO_BRANCH = "master"
+  }
 
-} finally {
+  parameters {
 
+  }
+
+  stages {
+    stage('Clone Seed Job Project') {
+      steps {
+        echo 'Before Building Jobs-------'
+        deleteDir()
+        checkout(
+          changelog: true,
+          poll: true,
+          scm: [
+              $class: 'GitSCM',
+              branches: [[name: env.REPO_BRANCH]],
+              doGenerateSubmoduleConfigurations: false,
+              submoduleCfg: [],
+              userRemoteConfigs: [[name: 'origin', url: env.REPO_URL]]
+          ]
+        )
+        ls
+      }
+    }
+
+    stage('Building Jobs by Project') {
+      steps {
+        echo '------Building Jobs-------'
+      }
+
+      steps {
+        ls
+        // projectWithJobDsl().each { app -> createProjectJobs(app) }
+      }
+    }
+
+    stage('After Building Jobs') {
+      steps {
+        echo 'After Building Jobs-------'
+      }
+    }
+  }
+
+  post {
+    always {
+
+    }
+
+    failure {
+
+    }
+
+    success {
+
+    }
+
+    cleanup {
+
+    }
+  }
 }
 
 def createProjectJobs(app) {
   try {
-    pipelineJob("${app.name}") {
+    pipelineJob('${app.name}') {
       definition {
         cpsScm {
           scm {
             git(
-              'https://github.com/Dkra/cra-jenkins',
-              'master'
+              '${app.url}',
+              '${app.branch}'
             )
           }
           scriptPath('Jenkinsfile') // Defualt: Jenkinsfile
