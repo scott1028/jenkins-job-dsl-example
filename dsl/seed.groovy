@@ -10,7 +10,7 @@ try {
 
 def createProjectJobs(app) {
   try {
-    pipelineJob(${app.name}) {
+    pipelineJob("${app.name}") {
       definition {
         cpsScm {
           scm {
