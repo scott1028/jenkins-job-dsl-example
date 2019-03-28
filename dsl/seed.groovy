@@ -14,18 +14,18 @@ pipeline {
     stage('Clone Seed Job Project') {
       steps {
         echo 'Before Building Jobs-------'
-        deleteDir()
-        checkout(
-          changelog: true,
-          poll: true,
-          scm: [
-              $class: 'GitSCM',
-              branches: [[name: env.REPO_BRANCH]],
-              doGenerateSubmoduleConfigurations: false,
-              submoduleCfg: [],
-              userRemoteConfigs: [[name: 'origin', url: env.REPO_URL]]
-          ]
-        )
+        // deleteDir()
+        // checkout(
+        //   changelog: true,
+        //   poll: true,
+        //   scm: [
+        //       $class: 'GitSCM',
+        //       branches: [[name: env.REPO_BRANCH]],
+        //       doGenerateSubmoduleConfigurations: false,
+        //       submoduleCfg: [],
+        //       userRemoteConfigs: [[name: 'origin', url: env.REPO_URL]]
+        //   ]
+        // )
         ls
       }
     }
