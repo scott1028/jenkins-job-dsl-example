@@ -1,12 +1,11 @@
 try {
-  stage 'Create SeedJobs by Project'
-    projectWithJobDsl().each { app -> createProjectJobs(app) }
+  projectWithJobDsl().each { app -> createProjectJobs(app) }
 } catch (err) {
 
   throw err
 
 } finally {
-  
+
 }
 
 def createProjectJobs(app) {
