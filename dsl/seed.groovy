@@ -6,7 +6,7 @@ try {
   throw err
 
 } finally {
-  deleteDir()
+  
 }
 
 def createProjectJobs(app) {
