@@ -1,9 +1,5 @@
 node {
     try {
-        stage('Clone SeedJob Project') {
-            git branch: "master", url: "https://github.com/Dkra/jenkins-job-dsl-example"
-        }
-
         stage("Build SeedJob by projects") {
             sh """
                 ls
@@ -13,7 +9,7 @@ node {
 
         stage("Build ListView") {
             sh """
-                cd ${WORKSPACE}
+                git branch: "master", url: "https://github.com/Dkra/jenkins-job-dsl-example"
                 ls
             """
             jobDsl ignoreMissingFiles: true, targets: "./listView/*.groovy"
