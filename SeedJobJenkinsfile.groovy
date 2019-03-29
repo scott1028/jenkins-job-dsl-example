@@ -8,8 +8,8 @@ node {
         }
 
         stage("Build ListView") {
-            sh """
-                git branch: "master", url: "https://github.com/Dkra/jenkins-job-dsl-example"
+            git branch: "master", url: "https://github.com/Dkra/jenkins-job-dsl-example"
+            sh """    
                 ls
             """
             jobDsl ignoreMissingFiles: true, targets: "./listView/*.groovy"
