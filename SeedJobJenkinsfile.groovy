@@ -1,10 +1,14 @@
 node {
     try {
+        stage('Clone SeedJob Project') {
+            git branch: "master", url: "https://github.com/Dkra/jenkins-job-dsl-example"
+        }
+
         stage("Build SeedJob by projects") {
             sh """
                 ls
             """
-            // projectWithJobDsl().each { app -> createProjectJobs(app) }
+            projectWithJobDsl().each { app -> createProjectJobs(app) }
         }
 
         stage("Build ListView") {
