@@ -13,6 +13,7 @@ node {
 
         stage("Build ListView") {
             sh """
+                cd ${WORKSPACE}
                 ls
             """
             jobDsl ignoreMissingFiles: true, targets: "./listView/*.groovy"
