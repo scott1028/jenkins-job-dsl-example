@@ -1,4 +1,4 @@
-listView('cra-jenkins Project') {
+listView('cra-jenkins-Project') {
     description('All cra-jenkins related Projects')
     filterBuildQueue()
     filterExecutors()
