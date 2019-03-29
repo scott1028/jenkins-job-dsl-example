@@ -4,7 +4,7 @@ node {
             sh """
                 ls
             """
-            projectWithJobDsl().each { app -> createProjectJobs(app) }
+            // projectWithJobDsl().each { app -> createProjectJobs(app) }
         }
 
         stage("Build ListView") {
