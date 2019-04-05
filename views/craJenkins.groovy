@@ -3,7 +3,7 @@ listView('cra-jenkins-Project') {
     filterBuildQueue()
     filterExecutors()
     jobs {
-        name('release-projectA')
+        // add jobs matched by this rule
         regex(/cra-jenkins.+/)
     }
     jobFilters {

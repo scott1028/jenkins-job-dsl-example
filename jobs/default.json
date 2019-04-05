@@ -1,0 +1,12 @@
+[
+    {
+      "name": "cra-jenkins-1",
+      "repo_url": "https://github.com/scott1028/cra-jenkins.git",
+      "branch": "master"
+    },
+    {
+      "name": "cra-jenkins-2",
+      "repo_url": "https://github.com/scott1028/cra-jenkins.git",
+      "branch": "master"
+    }
+]
